@@ -130,7 +130,9 @@
            "IDEA(i)"  ; An unconfirmed and unapproved task or notion
            "|"
            "DONE(d)"  ; Task successfully completed
-           "KILL(k)") ; Task was cancelled, aborted or is no longer applicable
+           "KILL(k)" ; Task was cancelled, aborted or is no longer applicable
+           "DELG(D)"  ; Task was delegated to someone else.
+           "BACK(b)") ; Task was scheduled in the backlog
           (sequence
            "[ ](T)"   ; A task that needs doing
            "[-](S)"   ; Task is in progress
@@ -151,6 +153,9 @@
           ("PROJ" . +org-todo-project)
           ("NO"   . +org-todo-cancel)
           ("KILL" . +org-todo-cancel))))
+
+(add-to-list 'org-modules 'org-checklist)
+(setq initial-frame-alist '((top . 1) (left . 1) (width . 143) (height . 55)))
 
 (use-package! org-journal
   :after org
