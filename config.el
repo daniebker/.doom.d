@@ -81,12 +81,11 @@
                          '((:name "Today"
                                   :time-grid t
                                   :date today
-                                  :order 1)))))
+                                  :order 1)
+                           (:discard (:anything))))))
             (alltodo "" ((org-agenda-overriding-header "")
                          (org-super-agenda-groups
                           '((:log t)
-                            (:name "To refile"
-                                   :file-path "refile\\.org")
                             (:name "Next to do"
                                    :todo "NEXT"
                                    :order 1)
@@ -96,16 +95,19 @@
                             (:name "Due Today"
                                    :deadline today
                                    :order 2)
+                            (:name "Due Soon"
+                             :deadline future
+                             :order 3)
                             (:name "Scheduled Soon"
-                                   :scheduled future
-                                   :order 8)
+                             :scheduled future
+                             :order 8)
                             (:name "Overdue"
                                    :deadline past
                                    :order 7)
-                            (:name "Meetings"
-                                   :and (:todo "MEET" :scheduled future)
-                                   :order 10)
-                            (:discard (:not (:todo "TODO")))))))))))
+                            (:name "Unscheduled"
+                             :date nil
+                             :order 9)
+                            (:discard (:not (:todo "TODO") :anything))))))))))
   :config
   (org-super-agenda-mode))
 
