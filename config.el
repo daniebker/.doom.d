@@ -128,7 +128,9 @@
            "IDEA(i)"  ; An unconfirmed and unapproved task or notion
            "|"
            "DONE(d)"  ; Task successfully completed
-           "KILL(k)") ; Task was cancelled, aborted or is no longer applicable
+           "KILL(k)" ; Task was cancelled, aborted or is no longer applicable
+           "DELG(D)"  ; Task was delegated to someone else.
+           "BACK(b)") ; Task was scheduled in the backlog
           (sequence
            "[ ](T)"   ; A task that needs doing
            "[-](S)"   ; Task is in progress
