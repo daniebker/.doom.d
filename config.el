@@ -152,6 +152,9 @@
           ("NO"   . +org-todo-cancel)
           ("KILL" . +org-todo-cancel))))
 
+(add-to-list 'org-modules 'org-checklist)
+(setq initial-frame-alist '((top . 1) (left . 1) (width . 143) (height . 55)))
+
 (use-package! org-journal
   :after org
   :config
