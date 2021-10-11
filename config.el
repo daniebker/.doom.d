@@ -87,26 +87,35 @@
                          (org-super-agenda-groups
                           '((:log t)
                             (:name "Next to do"
-                                   :todo "NEXT"
-                                   :order 1)
+                               :todo "NEXT"
+                               :order 1)
+                            (:name "In progress"
+                               :todo "STRT"
+                               :order 2)
                             (:name "Important"
-                                   :priority "A"
-                                   :order 6)
+                               :priority "A"
+                               :order 6)
                             (:name "Due Today"
-                                   :deadline today
-                                   :order 2)
-                            (:name "Due Soon"
-                             :deadline future
+                               :deadline today
+                               :order 2)
+                            (:name "Stale"
+                             :todo "WAIT"
                              :order 3)
+                            (:name "Due Soon"
+                               :deadline future
+                               :order 3)
                             (:name "Scheduled Soon"
-                             :scheduled future
-                             :order 8)
+                               :scheduled future
+                               :order 8)
                             (:name "Overdue"
-                                   :deadline past
-                                   :order 7)
+                               :deadline past
+                               :order 7)
+                            (:name "Projects"
+                             :todo "PROJ"
+                             :order 10)
                             (:name "Unscheduled"
-                             :date nil
-                             :order 9)
+                               :date nil
+                               :order 9)
                             (:discard (:not (:todo "TODO") :anything))))))))))
   :config
   (org-super-agenda-mode))
