@@ -117,7 +117,9 @@
   (setq org-archive-location "archive.org::datetree/"))
 
 (after! org
-  (setq org-todo-keywords
+  (setq
+   org-log-into-drawer t
+   org-todo-keywords
         '((sequence
            "TODO(t)"  ; A task that needs doing & is ready to do
            "NEXT(e)"  ; The next thing to do
@@ -169,3 +171,5 @@
    org-journal-enable-agenda-integration t
    org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
   (add-to-list 'org-agenda-files org-journal-dir))
+
+(add-to-list 'org-modules 'org-habit t)
