@@ -132,9 +132,7 @@
         '((sequence
            "TODO(t)"  ; A task that needs doing & is ready to do
            "NEXT(e)"  ; The next thing to do
-           "PROJ(p)"  ; A project, which usually contains other tasks
-           "MEET(m)"  ; A meeting
-           "LOOP(r)"  ; A recurring task
+           "GOAL(g)"  ; A goal, which usually contains other tasks
            "STRT(s)"  ; A task that is in progress
            "WAIT(w)"  ; Something external is holding up this task
            "HOLD(h)"  ; This task is paused/on hold because of me
@@ -149,6 +147,7 @@
            "[-](S)"   ; Task is in progress
            "[?](W)"   ; Task is being held up or paused
            "|"
+           "[>](P)"   ; Task is planned
            "[X](D)")  ; Task was completed
           (sequence
            "|"
@@ -161,7 +160,7 @@
           ("[?]"  . +org-todo-onhold)
           ("WAIT" . +org-todo-onhold)
           ("HOLD" . +org-todo-onhold)
-          ("PROJ" . +org-todo-project)
+          ("GOAL" . +org-todo-project)
           ("NO"   . +org-todo-cancel)
           ("KILL" . +org-todo-cancel))))
 
