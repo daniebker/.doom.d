@@ -73,6 +73,7 @@
       org-agenda-compact-blocks t
       org-agenda-start-day nil ;; i.e. today
       org-agenda-span 1
+      org-agenda-start-with-log-mode t
       org-agenda-start-on-weekday nil)
   (setq org-agenda-custom-commands
         '(("c" "Super view"
@@ -81,6 +82,7 @@
                          '((:name "Today"
                                   :time-grid t
                                   :date today
+                                  :scheduled today
                                   :order 1)
                            (:discard (:anything))))))
             (alltodo "" ((org-agenda-overriding-header "")
@@ -98,6 +100,8 @@
                             (:name "Due Today"
                                :deadline today
                                :order 2)
+                            (:name "Habits"
+                             :habit t)
                             (:name "Stale"
                              :todo "WAIT"
                              :order 3)
@@ -110,8 +114,8 @@
                             (:name "Overdue"
                                :deadline past
                                :order 7)
-                            (:name "Projects"
-                             :todo "PROJ"
+                            (:name "Goals"
+                             :todo "GOAL"
                              :order 10)
                             (:name "Unscheduled"
                                :date nil
@@ -135,12 +139,12 @@
            "GOAL(g)"  ; A goal, which usually contains other tasks
            "STRT(s)"  ; A task that is in progress
            "WAIT(w)"  ; Something external is holding up this task
+           "DELG(D)"  ; Task was delegated to someone else.
            "HOLD(h)"  ; This task is paused/on hold because of me
            "IDEA(i)"  ; An unconfirmed and unapproved task or notion
            "|"
            "DONE(d)"  ; Task successfully completed
            "KILL(k)" ; Task was cancelled, aborted or is no longer applicable
-           "DELG(D)"  ; Task was delegated to someone else.
            "BACK(b)") ; Task was scheduled in the backlog
           (sequence
            "[ ](T)"   ; A task that needs doing
@@ -150,6 +154,7 @@
            "[>](P)"   ; Task is planned
            "[X](D)")  ; Task was completed
           (sequence
+           "?(q)"
            "|"
            "OKAY(o)"
            "YES(y)"
