@@ -186,3 +186,14 @@
   (add-to-list 'org-agenda-files org-journal-dir))
 
 (add-to-list 'org-modules 'org-habit t)
+
+(after! org-roam
+  (setq
+   org-roam-directory "~/org-roam"              ;; Set the org-roam directory
+   org-roam-dailies-directory "daily/"          ;; Required to use org roam daily notes
+   org-roam-dailies-capture-templates           ;; Sets the capture templte for org roam dailies
+      '(("d" "default" entry
+         "* %?"
+         :target (file+head "%<%Y-%m-%d>.org"
+                            "#+title: %<%Y-%m-%d>\n"))))
+  (org-roam-db-autosync-mode))
