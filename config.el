@@ -88,6 +88,9 @@
             (alltodo "" ((org-agenda-overriding-header "")
                          (org-super-agenda-groups
                           '((:log t)
+                            (:name "Past Scheduled"
+                             :scheduled past
+                             :order 98)
                             (:name "Next to do"
                                :todo "NEXT"
                                :order 1)
